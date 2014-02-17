@@ -1,3 +1,3 @@
 module Webcoder
-  GEM_VERSION = '2.4.4'
+  VERSION = '0.0.1'
 end
