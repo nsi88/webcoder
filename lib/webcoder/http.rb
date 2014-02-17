@@ -16,7 +16,7 @@ module Webcoder
     self.default_options = {:timeout => 60000,
                             :headers => {'Accept'       => 'application/json',
                                          'Content-Type' => 'application/json',
-                                         'User-Agent'   => "Webcoder-rb v#{Webcoder::GEM_VERSION}"}}
+                                         'User-Agent'   => "Webcoder v#{Webcoder::VERSION}"}}
 
     def initialize(method, url, options={})
       self.method  = method
