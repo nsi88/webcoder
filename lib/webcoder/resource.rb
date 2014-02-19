@@ -36,7 +36,7 @@ module Webcoder
 
     def self.delete(path, options={})
       options = options.dup
-      url     = url_for(path)
+      url     = url_for(path, options)
       options = add_api_key_header(options)
       HTTP.delete(url, options)
     end
