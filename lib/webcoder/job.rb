@@ -2,7 +2,7 @@ module Webcoder
   class Job < Resource
 
     def self.create(params={}, options={})
-      post("/jobs", params, options)
+      post("/jobs", params, options.merge!((file = begin File.open(params[:input]) rescue false end).is_a?(File) ? {:multipart => true} : {} ))
     end
 
     def self.list(options={})
