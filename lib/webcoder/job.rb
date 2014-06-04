@@ -18,17 +18,16 @@ module Webcoder
       get("/jobs/#{job_id}", options)
     end
 
-    def self.progress(job_id, options={})
-      get("/jobs/#{job_id}/progress", options)
+    def self.pause(job_id, options={})
+      post("/jobs/#{job_id}/pause", nil, options)
     end
 
-    def self.resubmit(job_id, options={})
-      put("/jobs/#{job_id}/resubmit", nil, options)
+    def self.resume(job_id, options={})
+      post("/jobs/#{job_id}/resume", nil, options)
     end
 
-    def self.cancel(job_id, options={})
-      put("/jobs/#{job_id}/cancel", nil, options)
+    def self.destroy(job_id, options={})
+      delete("/jobs/#{job_id}", options)
     end
-
   end
 end
