@@ -5,17 +5,8 @@ module Webcoder
       post("/jobs", params, options)
     end
 
-    def self.list(options={})
-      options = options.dup
-      params  = { :page     => options.delete(:page) || 1,
-                  :per_page => options.delete(:per_page) || 50,
-                  :state    => options.delete(:state) }
-
-      get("/jobs", merge_params(options, params))
-    end
-
-    def self.details(job_id, options={})
-      get("/jobs/#{job_id}", options)
+    def self.index(params={}, options={})
+      get('/jobs?' + URI.encode(params.map { |k,v| "#{k}=#{v}" }.join("&")), options)
     end
 
     def self.pause(job_id, options={})
