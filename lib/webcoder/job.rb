@@ -9,6 +9,10 @@ module Webcoder
       get('/jobs?' + URI.encode(params.map { |k,v| "#{k}=#{v}" }.join("&")), options)
     end
 
+    def self.show(job_id, options={})
+      get("/jobs/#{job_id}", options)
+    end    
+
     def self.update(params={}, options={})
       put("/jobs/#{params.delete(:id)}", { :job => params }, options)
     end
